@@ -3,7 +3,7 @@
   author: "",
   degree: "",
   institution: "",
-  logo: "",
+  logo: none,
   department: "",
   date: none,
   abstract: none,
@@ -62,7 +62,9 @@
     #text(14pt)[#institution]
     #v(0.5em)
     #text(14pt)[#date]
-    #v(2in)
+    #if logo != none {
+      image(logo, width: 80mm)
+    }
   ]
 
   // Reset page numbering for front matter
@@ -117,6 +119,7 @@
   author: "Lowly Worm",
   degree: "Doctor of Philosophy",
   institution: "Atlantic Technological University",
+  logo: "images/atu-logo.jpg",
   department: "Faculty of Engineering and Computing",
   date: "May 2026",
   abstract: [
