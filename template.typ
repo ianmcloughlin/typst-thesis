@@ -17,12 +17,11 @@
   set page(
     paper: "a4",
     margin: (x: 1in, y: 1in),
-    numbering: "i",
     number-align: center
   )
 
   // Text setup: Times New Roman, 12pt, 1.5 line spacing
-  // set text(font: "Times New Roman", size: 12pt)
+  set text(font: "Times New Roman", size: 12pt)
   set par(leading: 0.5em)
 
   // Heading setup: numbered, with custom styling
@@ -44,10 +43,30 @@
     }
   }
 
-  include("front/title.typ")
+  // Title page
+  align(center)[
+    #v(20mm)
+    #text(24pt, weight: "bold")[#title]
+    #v(1em)
+    #text(16pt)[A Thesis Submitted for the Degree of ]
+    #v(0.5em)
+    #text(16pt)[#degree]
+    #v(2em)
+    #text(14pt)[by]
+    #v(0.5em)
+    #text(18pt, weight: "bold")[#author]
+    #v(2em)
+    #text(14pt)[#department]
+    #v(0.5em)
+    #text(14pt)[#institution]
+    #v(0.5em)
+    #text(14pt)[#date]
+    #if logo != none {
+      image(logo, width: 80mm)
+    }
+  ]
 
-  // Reset page numbering for front matter
-  set page(numbering: "i")
+  set page(numbering: "1")
   counter(page).update(1)
 
   // Abstract
@@ -70,9 +89,7 @@
   pagebreak()
   outline(title: [Table of Contents])
 
-  // Main body: switch to Arabic numbering
-  set page(numbering: "1")
-  counter(page).update(1)
+
 
   // Chapter and section formatting
   show heading.where(level: 1): it => {
@@ -91,4 +108,3 @@
 
   body
 }
-
