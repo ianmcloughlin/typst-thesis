@@ -7,12 +7,12 @@
   institution: "Atlantic Technological University",
   logo: "images/atu-logo.jpg",
   department: "Faculty of Engineering and Computing",
-  date: "May 2026",
+  date: datetime(year: 2026, month: 5, day: 1),
   abstract: [
-    This thesis explores [your topic]. It provides a comprehensive analysis of [brief description]. The study is structured into [number] chapters, covering [key areas]. The findings contribute to [field] by [contribution].
+    This thesis explores a lot of different areas. It is very exciting. So wow!
   ],
   acknowledgments: [
-    I would like to thank my advisor, [Advisor Name], for their guidance, and my family for their support.
+    I would like to thank everyone for their support.
   ],
   [
     #include "chapters/01-introduction.typ"

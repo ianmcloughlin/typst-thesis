@@ -5,23 +5,25 @@
   institution: "",
   logo: none,
   department: "",
-  date: none,
+  date: datetime.today(),
   abstract: none,
   acknowledgments: none,
   body
 ) = {
   // Set document metadata
-  set document(author: author, title: title)
+  set document(
+    author: author,
+    title: title,
+    date: date,
+  )
 
-  // Page setup: A4 paper, 1-inch margins
   set page(
     paper: "a4",
-    margin: (x: 1in, y: 1in),
+    margin: (x: 25mm, y: 20mm),
     number-align: center
   )
 
-  // Text setup: Times New Roman, 12pt, 1.5 line spacing
-  set text(font: "Times New Roman", size: 12pt)
+  set text(font: "Georgia", size: 12pt)
   set par(leading: 0.5em)
 
   // Heading setup: numbered, with custom styling
@@ -46,59 +48,55 @@
   // Title page
   align(center)[
     #v(20mm)
-    #text(24pt, weight: "bold")[#title]
-    #v(1em)
-    #text(16pt)[A Thesis Submitted for the Degree of ]
-    #v(0.5em)
+    #text(24pt, weight: "bold", fill: rgb("#005b5e"))[#title]
+    #v(20mm)
+    #text(18pt, weight: "bold", fill: rgb("#005b5e"))[#author]
+    #v(20mm)
+    #text(12pt)[Thesis]
+    #v(1mm)
     #text(16pt)[#degree]
-    #v(2em)
-    #text(14pt)[by]
-    #v(0.5em)
-    #text(18pt, weight: "bold")[#author]
-    #v(2em)
-    #text(14pt)[#department]
-    #v(0.5em)
-    #text(14pt)[#institution]
-    #v(0.5em)
-    #text(14pt)[#date]
+    #v(20mm)
+    #text(14pt)[#date.display("[month repr:long] [year]")]
+    #v(1mm)
+    #text(12pt)[#department]
     #if logo != none {
+      place(
+      bottom + left,
+      scope: "parent",
+      float: true,
       image(logo, width: 80mm)
+      )
     }
   ]
 
   set page(numbering: "1")
   counter(page).update(1)
 
-  // Abstract
   if abstract != none {
-    pagebreak()
+    pagebreak(weak: true)
     align(center)[#text(16pt, weight: "bold")[Abstract]]
-    v(1em)
     abstract
+    v(20mm)
   }
 
   // Acknowledgments
   if acknowledgments != none {
-    pagebreak()
     align(center)[#text(16pt, weight: "bold")[Acknowledgments]]
-    v(1em)
     acknowledgments
   }
 
   // Table of Contents
-  pagebreak()
+  pagebreak(weak: true)
   outline(title: [Table of Contents])
 
-
-
-  // Chapter and section formatting
   show heading.where(level: 1): it => {
     pagebreak(weak: true)
-    align(center)[#text(16pt, weight: "bold")[#it]]
-    v(1em)
+    text(16pt, weight: "bold", fill: rgb("#005b5e"))[Chapter #counter(heading).display("1")]
+    v(-4mm) 
+    text(24pt, weight: "bold", fill: rgb("#005b5e"))[#it.body]
+    v(2mm) 
   }
 
-  // Bibliography setup
   show bibliography: it => {
     it
   }

@@ -19,7 +19,7 @@ $
   alpha mat(1, 0; 0, 1) ket(1)
 $
 
-=== Probability of Error with Shor Code
+== Probability of Error with Shor Code
 
 #figure(
 cetz.canvas({
@@ -39,6 +39,7 @@ cetz.canvas({
 caption: [$op("P")("error") = 1 - op("P")("< 2") = 1 - (1-p)^9 + 9 p (1-p)^8$],
 placement: none)
 
+=== Circuits 
 
 #figure(rect(
 quantum-circuit(
