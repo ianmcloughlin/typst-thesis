@@ -100,9 +100,6 @@
 
   // Bibliography setup
   show bibliography: it => {
-    pagebreak()
-    align(center)[#text(16pt, weight: "bold")[References]]
-    v(1em)
     it
   }
 
