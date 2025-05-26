@@ -22,7 +22,7 @@
   )
 
   // Text setup: Times New Roman, 12pt, 1.5 line spacing
-  set text(font: "Times New Roman", size: 12pt)
+  // set text(font: "Times New Roman", size: 12pt)
   set par(leading: 0.5em)
 
   // Heading setup: numbered, with custom styling
@@ -110,6 +110,7 @@
   [
     #include "chapters/01-introduction.typ"
     #include "chapters/02-lit-review.typ"
+    #include "chapters/03-foundations.typ"
     #bibliography("bibliography.bib", style: "apa")
   ]
 )
