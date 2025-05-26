@@ -92,8 +92,8 @@
   show heading.where(level: 1): it => {
     pagebreak(weak: true)
     text(16pt, weight: "bold", fill: rgb("#005b5e"))[Chapter #counter(heading).display("1")]
-    v(-4mm) 
-    text(24pt, weight: "bold", fill: rgb("#005b5e"))[#it.body]
+    v(-2mm) 
+    text(20pt, weight: "bold", fill: rgb("#005b5e"))[#it.body]
     v(2mm) 
   }
 
