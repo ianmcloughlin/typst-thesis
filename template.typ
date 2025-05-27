@@ -1,4 +1,5 @@
 #let thesis(
+
   title: "",
   author: "",
   degree: "",
@@ -9,8 +10,9 @@
   abstract: none,
   acknowledgments: none,
   body
+
 ) = {
-  // Set document metadata
+  
   set document(
     author: author,
     title: title,
@@ -20,31 +22,28 @@
   set page(
     paper: "a4",
     margin: (x: 25mm, y: 20mm),
-    number-align: center
+    number-align: right,
   )
 
-  set text(font: "Georgia", size: 12pt)
-  set par(leading: 0.5em)
+  set text(
+    font: "Georgia",
+    size: 11pt,
+  )
 
-  // Heading setup: numbered, with custom styling
-  set heading(numbering: "1.1")
-  show heading: it => {
-    set text(weight: "bold")
-    if it.level == 1 {
-      set text(size: 16pt)
-      v(1em)
-      it
-      v(0.5em)
-    } else if it.level == 2 {
-      set text(size: 14pt)
-      v(0.75em)
-      it
-      v(0.25em)
-    } else {
-      it
-    }
+  set par(
+    leading: 1em,
+    spacing: 1.8em,
+  )
+
+  show heading.where(level: 1): it => {
+    pagebreak(weak: true)
+    text(
+      24pt,
+      fill: rgb("#005b5e"),
+    )[#it.body]
+    v(4mm)
   }
-
+  
   // Title page
   align(center)[
     #v(20mm)
@@ -73,31 +72,50 @@
   counter(page).update(1)
 
   if abstract != none {
-    pagebreak(weak: true)
-    align(center)[#text(16pt, weight: "bold")[Abstract]]
+    [= Acknowledgments]
     abstract
-    v(20mm)
   }
 
   // Acknowledgments
   if acknowledgments != none {
-    align(center)[#text(16pt, weight: "bold")[Acknowledgments]]
+    [= Acknowledgments]
     acknowledgments
   }
 
   // Table of Contents
   pagebreak(weak: true)
+  set outline.entry(fill: line(length: 100%, stroke: 0.1pt),)
+    show outline.entry: set block(above: 1em)
+  show outline.entry.where(
+    level: 1
+  ): set block(above: 1.2em)
   outline(title: [Table of Contents])
+
+  set heading(
+    numbering: "1.1",
+  )
 
   show heading.where(level: 1): it => {
     pagebreak(weak: true)
-    text(16pt, weight: "bold", fill: rgb("#005b5e"))[Chapter #counter(heading).display("1")]
-    v(-2mm) 
-    text(20pt, weight: "bold", fill: rgb("#005b5e"))[#it.body]
-    v(2mm) 
+    text(
+      16pt,
+      fill: rgb("#005b5e"),
+    )[Chapter #counter(heading).display("1")]
+    v(-4mm) 
+    text(
+      24pt,
+      fill: rgb("#005b5e"),
+    )[#it.body]
   }
 
   show bibliography: it => {
+    show heading.where(level: 1): it => {
+      pagebreak(weak: true)
+      text(
+        24pt,
+        fill: rgb("#005b5e"),
+      )[#it.body]
+    }
     it
   }
 
