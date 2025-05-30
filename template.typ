@@ -46,21 +46,22 @@
   
   // Title page
   align(center)[
-    #v(20mm)
     #text(24pt, weight: "bold", fill: rgb("#005b5e"))[#title]
-    #v(20mm)
+    #v(10mm)
     #text(18pt, weight: "bold", fill: rgb("#005b5e"))[#author]
     #v(20mm)
-    #text(12pt)[Thesis]
     #v(1mm)
     #text(16pt)[#degree]
-    #v(20mm)
-    #text(14pt)[#date.display("[month repr:long] [year]")]
+    #v(1mm)
+    #text(12pt)[Thesis]
     #v(1mm)
     #text(12pt)[#department]
+    #v(30mm)
+    #text(14pt)[#date.display("[month repr:long] [year]")]
+    #v(1mm)
     #if logo != none {
       place(
-      bottom + left,
+      bottom + center,
       scope: "parent",
       float: true,
       image(logo, width: 80mm)
@@ -69,10 +70,10 @@
   ]
 
   set page(numbering: "1")
-  counter(page).update(1)
+  counter(page).update(2)
 
   if abstract != none {
-    [= Acknowledgments]
+    [= Abstract]
     abstract
   }
 

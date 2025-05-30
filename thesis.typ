@@ -11,9 +11,7 @@
   abstract: [
     This thesis explores a lot of different areas. It is very exciting. So wow!
   ],
-  acknowledgments: [
-    I would like to thank everyone for their support.
-  ],
+  acknowledgments: "I would like to thank everyone for their support.",
   [
     #include "chapters/01-introduction.typ"
     #include "chapters/02-lit-review.typ"
@@ -21,3 +19,4 @@
     #bibliography("bibliography.bib", style: "apa")
   ]
 )
+ 
