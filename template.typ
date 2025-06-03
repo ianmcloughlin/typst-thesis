@@ -1,17 +1,16 @@
-#let thesis(
 
-  title: "",
-  author: "",
-  degree: "",
-  institution: "",
+#let thesis(
+  title: none,
+  author: none,
+  degree: none,
+  institution: none,
   logo: none,
-  department: "",
+  department: none,
   date: datetime.today(),
   abstract: none,
   acknowledgments: none,
-  body
-
-) = {
+  doc
+) = { 
   
   set document(
     author: author,
@@ -102,11 +101,13 @@
       16pt,
       fill: rgb("#005b5e"),
     )[Chapter #counter(heading).display("1")]
-    v(-4mm) 
+    v(-8mm) 
+    set par(leading: 0.6em)
     text(
       24pt,
       fill: rgb("#005b5e"),
     )[#it.body]
+    v(4mm)
   }
 
   show bibliography: it => {
@@ -120,5 +121,5 @@
     it
   }
 
-  body
+  doc
 }

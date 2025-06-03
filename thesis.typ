@@ -1,6 +1,6 @@
 #import "template.typ": thesis
 
-#thesis(
+#show: thesis.with(
   title: "Investigation of the Efficacy of Using the Typst Typesetting System for Academic Writing",
   author: "Lowly Worm",
   degree: "Doctor of Philosophy",
@@ -11,12 +11,12 @@
   abstract: [
     This thesis explores a lot of different areas. It is very exciting. So wow!
   ],
-  acknowledgments: "I would like to thank everyone for their support.",
-  [
-    #include "chapters/01-introduction.typ"
-    #include "chapters/02-lit-review.typ"
-    #include "chapters/03-foundations.typ"
-    #bibliography("bibliography.bib", style: "apa")
-  ]
+  acknowledgments: [
+    I would like to thank everyone for their support.
+  ],
 )
- 
+
+#include "chapters/01-introduction.typ"
+#include "chapters/02-lit-review.typ"
+#include "chapters/03-foundations.typ"
+#bibliography("bibliography.bib", style: "apa")
