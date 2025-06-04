@@ -1,4 +1,3 @@
-
 #let thesis(
   title: none,
   author: none,
@@ -89,25 +88,25 @@
   show outline.entry.where(
     level: 1
   ): set block(above: 1.2em)
-  outline(title: [Table of Contents #v(10mm)])
+  outline(depth: 2, title: [Table of Contents])
 
   set heading(
     numbering: "1.1",
   )
+  show heading: set block(above: 2em, below: 1em)
 
   show heading.where(level: 1): it => {
+    set par(leading: 0.6em)
     pagebreak(weak: true)
     text(
       16pt,
       fill: rgb("#005b5e"),
     )[Chapter #counter(heading).display("1")]
-    v(-8mm) 
-    set par(leading: 0.6em)
+    v(-1em) 
     text(
       24pt,
       fill: rgb("#005b5e"),
     )[#it.body]
-    v(4mm)
   }
 
   show bibliography: it => {

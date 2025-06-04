@@ -4,22 +4,42 @@
 #import "@preview/ctheorems:1.1.3": *
 #import "@preview/physica:0.9.5": *
 
-= Introduction to Typst
+= Introduction
 
 Typst is a modern typesetting system that has gained popularity for its simplicity and flexibility. This thesis investigates the efficacy of using Typst for academic writing, comparing it with traditional systems like LaTeX. The study focuses on user experience, document quality, and the learning curve associated with Typst. Through a series of experiments and user surveys, we aim to provide insights into the advantages and limitations of Typst in an academic context @shor1997faulttolerantquantumcomputation.
 
 The findings suggest that Typst offers a user-friendly interface and rapid document creation, making it a viable alternative for academic writing. However, certain advanced features found in LaTeX may be lacking in Typst, which could impact its adoption among researchers and academics.
 
+#lorem(200)
+
+#lorem(200)
+
+
+== Mathematics
+
+Typst is a modern markup-based typesetting system (like LaTeX) that supports mathematics using a concise, expressive syntax.
+You can display mathematics inline with dollar symbols.
+For example, `$e^x$` gives $e^x$.
+Block style also uses single dollar symbols but with a blank line before and after, like this:
+
 $
   op("I") = mat(1, 0; 0, 1) #h(4mm) op("X") = mat(0, 1; 1, 0) #h(4mm) op("Y") = mat(0, -i; i, 0) #h(4mm) op("Z") = mat(1, 0; 0, -1)
 $
 
+Packages such as physica provide additional mathematical symbols and functions like `ket`:
 
 $
   alpha mat(1, 0; 0, 1) ket(1)
 $
 
-== Probability of Error with Shor Code
+#lorem(200)
+
+
+
+== Plots
+
+The cetz package can plot, just like pgfplots in LaTeX.
+
 
 #figure(
 cetz.canvas({
@@ -38,6 +58,14 @@ cetz.canvas({
 }),
 caption: [$op("P")("error") = 1 - op("P")("< 2") = 1 - (1-p)^9 + 9 p (1-p)^8$],
 placement: none)
+
+#lorem(200)
+
+#lorem(200)
+
+#lorem(200)
+
+
 
 === Circuits 
 

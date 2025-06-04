@@ -19,4 +19,5 @@
 #include "chapters/01-introduction.typ"
 #include "chapters/02-lit-review.typ"
 #include "chapters/03-foundations.typ"
-#bibliography("bibliography.bib", style: "apa")
+
+#bibliography("bibliography.bib")
